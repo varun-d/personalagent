@@ -1,0 +1,11 @@
+[project]
+name = "personalagent"
+version = "0.1.0"
+description = "A simple personal agent with memory"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi[standard]>=0.115.6",
+    "groq>=0.13.1",
+    "openai>=1.59.3",
+]
