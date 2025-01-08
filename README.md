@@ -22,12 +22,17 @@ Get weather context, summarize, get location context for varun, summarize.
 
 On every LLM Cycle, keep check on context length, summarize history after XX user/agent chat! And save it (Future).
 
+## Future
+
+My own agent should be able to call me.
+get a call from my own agent! To remind me about tasks
+
 ## Tips and Tricks
 
 Reducing context/prompt sizing
 https://www.microsoft.com/en-us/research/blog/llmlingua-innovating-llm-efficiency-with-prompt-compression/
 
-## Stack
+## Stacks
 
 Fast API
 https://fastapi.tiangolo.com/async/#asynchronous-code
