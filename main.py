@@ -1,8 +1,8 @@
 from typing import List, Union
 from fastapi import FastAPI
 import logging
-from context_helpers.worldcontext import getWorldContext
-from context_helpers.groq_llm import call_groq
+from brain.worldcontext import getDateTimeContext
+from brain.llm_library import call_groq
 
 # Set up logging
 LOG = logging.getLogger(__name__)
@@ -30,11 +30,11 @@ app = FastAPI()
 # Root endpoint
 @app.get("/")
 def read_root():
-    return {"Content": "This is running at the root of the server. You are seeing this because you are not specifying any path."}
+    return {"Content": "This is running at the root of the server."}
 
 @app.get("/testrun")
 def testrun():
-    return {"Test Endpoint": getWorldContext()}  
+    return {"Test Endpoint": getDateTimeContext()}  
 
 @app.get("/items/{item_id}")
 def read_item(item_id: int, q: Union[str, None] = None):
@@ -42,7 +42,7 @@ def read_item(item_id: int, q: Union[str, None] = None):
 
 @app.get("/simple/{query}")
 async def simple_resp(query: str):
-    messages.append({"role": "user", "content": query + getWorldContext()})
+    messages.append({"role": "user", "content": query + getDateTimeContext()})
     response = call_groq(messages)
     print(messages)
     return {"Response:": response}
